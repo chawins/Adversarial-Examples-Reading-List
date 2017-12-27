@@ -1,5 +1,5 @@
 # Adversarial-Examples-Reading-List
-There are many publications in this area coming out almost every week so I want to keep track of them here, in case it will be useful to anyone who is also interested.
+There are many publications in this area coming out almost every week so I want to keep track of them here, in case it will be useful to anyone who is also interested in the concept of adversarial examples.
 
 ## Background
 - C. Szegedy, J. Bruna, D. Erhan, and I. Goodfellow, “Intriguing properties of neural networks.”
@@ -7,7 +7,7 @@ There are many publications in this area coming out almost every week so I want 
 - A. Nguyen, J. Yosinski, and J. Clune, “Deep Neural Networks are Easily Fooled,” CVPR, 2015 IEEE Conf., pp. 427–436, 2015.
 - N. Papernot, P. Mcdaniel, I. Goodfellow, S. Jha, Z. B. Celik, and A. Swami, “Practical Black-Box Attacks against Deep Learning Systems using Adversarial Examples.”
 - N. Papernot, P. McDaniel, S. Jha, M. Fredrikson, Z. B. Celik, and A. Swami, “The Limitations of Deep Learning in Adversarial Settings,” IEEE, Nov. 2015.
-- N. Papernot, P. Mcdaniel, A. Sinha, and M. Wellman, “SoK : Towards the Science of Security and Privacy in Machine Learning,” pp. 1–19.
+- N. Papernot, P. Mcdaniel, A. Sinha, and M. Wellman, “SoK : Towards the Science of Security and Privacy in Machine Learning.”
 
 ## Attacks
 - N. Carlini and D. Wagner, “Towards Evaluating the Robustness of Neural Networks.”
@@ -21,11 +21,11 @@ There are many publications in this area coming out almost every week so I want 
 - S.-M. Moosavi-Dezfooli, A. Fawzi, and P. Frossard, “DeepFool: a simple and accurate method to fool deep neural networks,” CVPR, pp. 2574–2582, 2016.
 
 ## Defenses
-- N. Papernot, P. McDaniel, X. Wu, S. Jha, and A. Swami, “Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks,” pp. 1–16, 2015.
+- N. Papernot, P. McDaniel, X. Wu, S. Jha, and A. Swami, “Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks,” 2015.
 - A. Kurakin, G. Brain, I. J. Goodfellow, and S. Bengio, “ADVERSARIAL MACHINE LEARNING AT SCALE.”
   - Adversarial training
 - D. Meng and H. Chen, “MagNet: a Two-Pronged Defense against Adversarial Examples.”
-- S. Shen ICT, G. Jin ICT, K. Gao ICT, and Y. Zhang ICT, “APE-GAN: Adversarial Perturbation Elimination with GAN.”
+- S. Shen, G. Jin, K. Gao, and Y. Zhang, “APE-GAN: Adversarial Perturbation Elimination with GAN.”
 - A. Mądry, A. Makelov, L. Schmidt, D. Tsipras, and A. Vladu, “Towards Deep Learning Models Resistant to Adversarial Attacks.”
 - S. Zheng, T. Leung, and I. Goodfellow, “Improving the Robustness of Deep Neural Networks via Stability Training.”
 
@@ -36,12 +36,14 @@ There are many publications in this area coming out almost every week so I want 
 
 ## Applications
 - Physically robust adversarial examples
+  - A. Kurakin, I. J. Goodfellow, and S. Bengio, “ADVERSARIAL EXAMPLES IN THE PHYSICAL WORLD.”
   - A. Athalye, L. Engstrom, A. Ilyas, and K. Kwok, “SYNTHESIZING ROBUST ADVERSARIAL EXAMPLES.”
   - J. Lu, H. Sibai, E. Fabry, and D. Forsyth, “NO Need to Worry about Adversarial Examples in Object Detection in Autonomous Vehicles,” 2017.
   - J. Lu, H. Sibai, E. Fabry, and D. Forsyth, “Standard detectors aren’t (currently) fooled by physical adversarial stop signs.”
 - C. Xie, J. Wang, Z. Zhang, Y. Zhou, L. Xie, and A. Yuille, “Adversarial Examples for Semantic Segmentation and Object Detection.”
 - N. Carlini et al., “Hidden Voice Commands,” USENIX, 2016.
 - S. Huang, N. Papernot, I. Goodfellow, Y. Duan, and P. Abbeel, “Adversarial Attacks on Neural Network Policies.”
+- J. Lu, H. Sibai, and E. Fabry, “Adversarial Examples that Fool Detectors.”
 
 ## Etc.
 - Neural network verification
@@ -51,6 +53,9 @@ There are many publications in this area coming out almost every week so I want 
 - Defeating defenses
   - N. Carlini and D. Wagner, “Adversarial Examples Are Not Easily Detected: Bypassing Ten Detection Methods.”
   - W. He, J. Wei, X. Chen, and N. Carlini, “Adversarial Example Defenses: Ensembles of Weak Defenses are not Strong.”
+  
+# Useful Links
+- https://github.com/tensorflow/cleverhans
 
 ## To-Read
 - F. Tramèr, N. Papernot, I. Goodfellow, D. Boneh, and P. Mcdaniel, “The Space of Transferable Adversarial Examples.”
