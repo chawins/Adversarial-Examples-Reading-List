@@ -19,6 +19,7 @@ There are many publications in this area coming out almost every week so I want 
 - Y. Liu, X. Chen, C. Liu, and D. Song, “Delving into Transferable Adversarial Examples and Black-box Attacks,” no. 2, pp. 1–24, 2016.
 - S.-M. Moosavi-Dezfooli, A. Fawzi, O. Fawzi, and P. Frossard, “Universal adversarial perturbations,” 2016.
 - S.-M. Moosavi-Dezfooli, A. Fawzi, and P. Frossard, “DeepFool: a simple and accurate method to fool deep neural networks,” CVPR, pp. 2574–2582, 2016.
+- F. Tramèr, N. Papernot, I. Goodfellow, D. Boneh, and P. Mcdaniel, “The Space of Transferable Adversarial Examples.”
 
 ## Defenses
 - N. Papernot, P. McDaniel, X. Wu, S. Jha, and A. Swami, “Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks,” 2015.
@@ -58,7 +59,6 @@ There are many publications in this area coming out almost every week so I want 
 - https://github.com/tensorflow/cleverhans
 
 ## To-Read
-- F. Tramèr, N. Papernot, I. Goodfellow, D. Boneh, and P. Mcdaniel, “The Space of Transferable Adversarial Examples.”
 - W. Brendel, J. Rauber, and M. Bethge, “DECISION-BASED ADVERSARIAL ATTACKS: RELIABLE ATTACKS AGAINST BLACK-BOX MACHINE LEARNING MODELS,” 2017.
 - A. Bagnall, R. Bunescu, and G. Stewart, “Training Ensembles to Detect Adversarial Examples,” 2017.
 - K. Grosse, D. Pfaff, M. T. Smith, and M. Backes, “How Wrong Am I? — Studying Adversarial Examples and their Impact on Uncertainty in Gaussian Process Machine Learning Models.”
@@ -76,3 +76,9 @@ There are many publications in this area coming out almost every week so I want 
 - X. Cao and N. Z. Gong, “Mitigating Evasion Attacks to Deep Neural Networks via Region-based Classification.”
 - N. Narodytska and S. Kasiviswanathan, “Simple Black-Box Adversarial Attacks on Deep Neural Networks.”
 - H. Hosseini, Y. Chen, S. Kannan, B. Zhang, and R. Poovendran, “Blocking Transferability of Adversarial Examples in Black-Box Learning Systems.”
+- T. Pang, C. Du, Y. Dong, and J. Zhu, “Towards Robust Detection of Adversarial Examples.” [link](https://arxiv.org/pdf/1706.00633.pdf)
+- X. Yuan, P. He, Q. Zhu, R. R. Bhat, and X. Li, “Adversarial Examples: Attacks and Defenses for Deep Learning.” [link](https://arxiv.org/pdf/1712.07107.pdf)
+- A. Ilyas, L. Engstrom, A. Athalye, and J. Lin, “Query-efficient Black-box Adversarial Examples.” [link](https://arxiv.org/pdf/1712.07113.pdf)
+- A. Rawat, M. Wistuba, and M.-I. Nicolae, “Harnessing Model Uncertainty for Detecting Adversarial Examples.” [link](http://bayesiandeeplearning.org/2017/papers/37.pdf)
+- J. Ebrahimi, A. Rao, D. Lowd, and D. Dou, “HotFlip: White-Box Adversarial Examples for NLP.”
+- F. Suya, Y. Tian, D. Evans, and P. Papotti, “Query-limited Black-box Attacks to Classifiers.”
