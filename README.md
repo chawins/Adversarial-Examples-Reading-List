@@ -1,5 +1,5 @@
 # Adversarial-Examples-Reading-List
-There are many publications in this area coming out almost every week so I want to keep track of them here, in case it will be useful to anyone who is also interested in the concept of adversarial examples.
+There are many publications in this area coming out almost every week so I want to keep track of the ones I have read and the ones I plan to read, in case it will be useful to anyone who is also interested in the concept of adversarial examples.
 
 ## Background
 - C. Szegedy, J. Bruna, D. Erhan, and I. Goodfellow, “Intriguing properties of neural networks.”
