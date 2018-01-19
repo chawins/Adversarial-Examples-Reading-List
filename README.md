@@ -1,4 +1,4 @@
-# Adversarial-Examples-Reading-List
+# Adversarial Examples Reading List
 There are many publications in this area coming out almost every week so I want to keep track of the ones I have read and the ones I plan to read, in case it will be useful to anyone who is also interested in the concept of adversarial examples.
 
 ## Background
@@ -44,7 +44,6 @@ There are many publications in this area coming out almost every week so I want 
   - J. Lu, H. Sibai, E. Fabry, and D. Forsyth, “NO Need to Worry about Adversarial Examples in Object Detection in Autonomous Vehicles,” 2017.
   - J. Lu, H. Sibai, E. Fabry, and D. Forsyth, “Standard detectors aren’t (currently) fooled by physical adversarial stop signs.”
 - C. Xie, J. Wang, Z. Zhang, Y. Zhou, L. Xie, and A. Yuille, “Adversarial Examples for Semantic Segmentation and Object Detection.”
-- N. Carlini et al., “Hidden Voice Commands,” USENIX, 2016.
 - S. Huang, N. Papernot, I. Goodfellow, Y. Duan, and P. Abbeel, “Adversarial Attacks on Neural Network Policies.”
 - J. Lu, H. Sibai, and E. Fabry, “Adversarial Examples that Fool Detectors.”
 
@@ -56,8 +55,12 @@ There are many publications in this area coming out almost every week so I want 
 - Defeating defenses
   - N. Carlini and D. Wagner, “Adversarial Examples Are Not Easily Detected: Bypassing Ten Detection Methods.”
   - W. He, J. Wei, X. Chen, and N. Carlini, “Adversarial Example Defenses: Ensembles of Weak Defenses are not Strong.”
+
+## Other Cool Security/Adversarial ML papers
+- N. Carlini et al., “Hidden Voice Commands,” USENIX, 2016. [link](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/carlini)
+- M. Sharif, S. Bhagavatula, L. Bauer, and M. K. Reiter, "Accessorize to a Crime: Real and Stealthy Attacks on State-of-the-Art Face Recognition," In Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security (CCS '16). ACM, New York, NY, USA, 1528-1540. DOI: https://doi.org/10.1145/2976749.2978392
   
-# Useful Links
+## Useful Links
 - https://github.com/tensorflow/cleverhans
 
 ## To-Read
