@@ -22,6 +22,8 @@ There are many publications in this area coming out almost every week so I want 
 - F. Tramèr, N. Papernot, I. Goodfellow, D. Boneh, and P. Mcdaniel, “The Space of Transferable Adversarial Examples.”
 - M. Cisse, Y. Adi, N. Neverova, and J. Keshet, “Houdini: Fooling Deep Structured Prediction Models.”
   - Generating adversarial examples using surrogate loss in place of real non-differentiable task loss
+- W. Brendel, J. Rauber, and M. Bethge, “DECISION-BASED ADVERSARIAL ATTACKS: RELIABLE ATTACKS AGAINST BLACK-BOX MACHINE LEARNING MODELS,” 2017. [link](https://arxiv.org/abs/1712.04248)
+  - Attack that requires only the classifier's output (# of queries ~10<sup>5</sup>). Start with an image of target class and move towards a desired benign image.
 
 ## Defenses
 - N. Papernot, P. McDaniel, X. Wu, S. Jha, and A. Swami, “Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks,” 2015.
@@ -64,7 +66,6 @@ There are many publications in this area coming out almost every week so I want 
 - https://github.com/tensorflow/cleverhans
 
 ## To-Read
-- W. Brendel, J. Rauber, and M. Bethge, “DECISION-BASED ADVERSARIAL ATTACKS: RELIABLE ATTACKS AGAINST BLACK-BOX MACHINE LEARNING MODELS,” 2017.
 - A. Bagnall, R. Bunescu, and G. Stewart, “Training Ensembles to Detect Adversarial Examples,” 2017.
 - K. Grosse, D. Pfaff, M. T. Smith, and M. Backes, “How Wrong Am I? — Studying Adversarial Examples and their Impact on Uncertainty in Gaussian Process Machine Learning Models.”
 - E. D. Cubuk, B. Zoph, S. S. Schoenholz, Q. V Le, and G. Brain, “INTRIGUING PROPERTIES OF ADVERSARIAL EXAMPLES.”
