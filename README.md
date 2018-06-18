@@ -1,5 +1,5 @@
 # Adversarial Examples Reading List
-There are many publications in this area coming out almost every week so I want to keep track of the ones I have read and the ones I plan to read, in case it will be useful to anyone who is also interested in the concept of adversarial examples.
+There are many publications in this area coming out almost every week so I want to keep track of the ones I have read and the ones I plan to read, in case it will be useful to anyone who is also interested in the concept of adversarial examples. The order of the papers is arbitrary. Any paper suggestion is very welcomed.
 
 ## Background
 - C. Szegedy, J. Bruna, D. Erhan, and I. Goodfellow, “Intriguing properties of neural networks.”
@@ -10,7 +10,7 @@ There are many publications in this area coming out almost every week so I want 
 - N. Papernot, P. Mcdaniel, A. Sinha, and M. Wellman, “SoK : Towards the Science of Security and Privacy in Machine Learning.”
 
 ## Attacks
-- N. Carlini and D. Wagner, “Towards Evaluating the Robustness of Neural Networks.”
+- (*) N. Carlini and D. Wagner, “Towards Evaluating the Robustness of Neural Networks.”
 - P.-Y. Chen, Y. Sharma, H. Zhang, J. Yi, and C.-J. Hsieh, “EAD: Elastic-Net Attacks to Deep Neural Networks via Adversarial Examples.”
 - O. Poursaeed, I. Katsman, B. Gao, and S. Belongie, “Generative Adversarial Perturbations.”
 - S. Baluja and I. Fischer, “Adversarial Transformation Networks: Learning to Generate Adversarial Examples.”
@@ -24,20 +24,42 @@ There are many publications in this area coming out almost every week so I want 
   - Generating adversarial examples using surrogate loss in place of real non-differentiable task loss
 - W. Brendel, J. Rauber, and M. Bethge, “DECISION-BASED ADVERSARIAL ATTACKS: RELIABLE ATTACKS AGAINST BLACK-BOX MACHINE LEARNING MODELS,” 2017. [link](https://arxiv.org/abs/1712.04248)
   - Attack that requires only the classifier's output (# of queries ~10<sup>5</sup>). Start with an image of target class and move towards a desired benign image.
+- Xiao et al., "SPATIALLY TRANSFORMED ADVERSARIAL EXAMPLES," 2018.
+### Attacks with GAN
+- Z. Zhao, D. Dua, and S. Singh, “GENERATING NATURAL ADVERSARIAL EXAMPLES.”
+- J. Hayes, G. Danezis, "Learning Universal Adversarial Perturbations with Generative Models."
+- Xiao et al., "GENERATING ADVERSARIAL EXAMPLES WITH ADVERSARIAL NETWORKS," 2018.
+- Poursaeed et al., "Generative Adversarial Perturbations," 2017.
 
 ## Defenses
 - N. Papernot, P. McDaniel, X. Wu, S. Jha, and A. Swami, “Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks,” 2015.
 - A. Kurakin, G. Brain, I. J. Goodfellow, and S. Bengio, “ADVERSARIAL MACHINE LEARNING AT SCALE.”
   - Adversarial training
+- S. Gu, L. Rigazio, "Towards Deep Neural Network Architectures Robust to Adversarial Examples," 2015.
 - D. Meng and H. Chen, “MagNet: a Two-Pronged Defense against Adversarial Examples.”
-- S. Shen, G. Jin, K. Gao, and Y. Zhang, “APE-GAN: Adversarial Perturbation Elimination with GAN.”
-- A. Mądry, A. Makelov, L. Schmidt, D. Tsipras, and A. Vladu, “Towards Deep Learning Models Resistant to Adversarial Attacks.”
+- (*) A. Mądry, A. Makelov, L. Schmidt, D. Tsipras, and A. Vladu, “Towards Deep Learning Models Resistant to Adversarial Attacks.”
 - S. Zheng, T. Leung, and I. Goodfellow, “Improving the Robustness of Deep Neural Networks via Stability Training.”
+- H. Kannan, A. Kurakin, I. Goodfellow, "Adversarial Logit Pairing," 2018.
+- A. Galloway, T. Tanay, G. Taylor, "Adversarial Training Versus Weight Decay," 2018.
+- A. Mosca, G. Magoulas, "Hardening against adversarial examples with the smooth gradient method," 2018.
+- A. Raghunathan, J. Steinhardt, P. Liang, "Certified Defenses against Adversarial Examples," 2018.
+### Defenses with GAN
+- Y. Song, T. Kim, S. Nowozin, S. Ermon, and N. Kushman, “PIXELDEFEND: LEVERAGING GENERATIVE MODELS TO UNDERSTAND AND DEFEND AGAINST ADVERSARIAL EXAMPLES.”
+- S. Shen, G. Jin, K. Gao, and Y. Zhang, “APE-GAN: Adversarial Perturbation Elimination with GAN.”
+- P. Samangouei, M. Kabkab, R. Chellappa, "Defense-GAN: Protecting Classifiers Against Adversarial Attacks Using Generative Models," 2018.
+- Ilyas et al., "The Robust Manifold Defense: Adversarial Training using Generative Models," 2018.
 
-## Robustness Analysis
+## Theoretical Analysis
 - O. Bastani, Y. Ioannou, L. Lampropoulos, D. Vytiniotis, A. V Nori, and A. Criminisi, “Measuring Neural Net Robustness with Constraints.”
 - A. Fawzi, O. Fawzi, and P. Frossard, “Analysis of classifiers’ robustness to adversarial perturbations.”
 - A. Matyasko and L. Chau, “Margin Maximization for Robust Classification using Deep Learning,” pp. 300–307, 2017.
+- J. Sokolic, R. Giryes, G. Sapiro, and M. R. D. Rodrigues, “Robust Large Margin Deep Neural Networks,” May 2016.
+- E. D. Cubuk, B. Zoph, S. S. Schoenholz, Q. V Le, and G. Brain, “INTRIGUING PROPERTIES OF ADVERSARIAL EXAMPLES.”
+  - Universal properties of small perturbation
+  - Improving robustness with larger logits difference
+- Gilmer et al., "Adversarial Spheres," 2018.
+  - On-distribution adversarial examples
+  - Any none-zero test error leads to adversarial examples 
 
 ## Applications
 - Physically robust adversarial examples
@@ -45,9 +67,17 @@ There are many publications in this area coming out almost every week so I want 
   - A. Athalye, L. Engstrom, A. Ilyas, and K. Kwok, “SYNTHESIZING ROBUST ADVERSARIAL EXAMPLES.”
   - J. Lu, H. Sibai, E. Fabry, and D. Forsyth, “NO Need to Worry about Adversarial Examples in Object Detection in Autonomous Vehicles,” 2017.
   - J. Lu, H. Sibai, E. Fabry, and D. Forsyth, “Standard detectors aren’t (currently) fooled by physical adversarial stop signs.”
+  - C. Sitawarin, A. Bhagoji, A. Mosenia, M. Chiang, P. Mittal, "DARTS: Deceiving Autonomous Cars with Toxic Signs," 2018.
 - C. Xie, J. Wang, Z. Zhang, Y. Zhou, L. Xie, and A. Yuille, “Adversarial Examples for Semantic Segmentation and Object Detection.”
 - S. Huang, N. Papernot, I. Goodfellow, Y. Duan, and P. Abbeel, “Adversarial Attacks on Neural Network Policies.”
 - J. Lu, H. Sibai, and E. Fabry, “Adversarial Examples that Fool Detectors.”
+### Text
+- J. Gao, J. Lanchantin, M. Soffa, Y. Qi, "Black-box Generation of Adversarial Text Sequences to Evade Deep Learning Classifiers," 2018.
+- Kuleshov et al., "Adversarial Examples for Natural Language Classification Problems," 2018.
+- Ebrahimi et al., "HotFlip: White-Box Adversarial Examples for Text Classification," 2018.
+- Samanta et al., "Towards Crafting Text Adversarial Samples," 2018.
+### Audio
+- Carlini et al., "Audio Adversarial Examples: Targeted Attacks on Speech-to-Text," 2018.
 
 ## Etc.
 - Neural network verification
@@ -57,6 +87,8 @@ There are many publications in this area coming out almost every week so I want 
 - Defeating defenses
   - N. Carlini and D. Wagner, “Adversarial Examples Are Not Easily Detected: Bypassing Ten Detection Methods.”
   - W. He, J. Wei, X. Chen, and N. Carlini, “Adversarial Example Defenses: Ensembles of Weak Defenses are not Strong.”
+  - Athalye et al., "Obfuscated Gradients Give a False Sense of Security: Circumventing Defenses to Adversarial Examples," 2018.
+- Elsayed et al., "Adversarial Examples that Fool both Human and Computer Vision," 2018.
 
 ## Other Cool Security/Adversarial ML papers
 - N. Carlini et al., “Hidden Voice Commands,” USENIX, 2016. [link](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/carlini)
@@ -68,14 +100,10 @@ There are many publications in this area coming out almost every week so I want 
 ## To-Read
 - A. Bagnall, R. Bunescu, and G. Stewart, “Training Ensembles to Detect Adversarial Examples,” 2017.
 - K. Grosse, D. Pfaff, M. T. Smith, and M. Backes, “How Wrong Am I? — Studying Adversarial Examples and their Impact on Uncertainty in Gaussian Process Machine Learning Models.”
-- E. D. Cubuk, B. Zoph, S. S. Schoenholz, Q. V Le, and G. Brain, “INTRIGUING PROPERTIES OF ADVERSARIAL EXAMPLES.”
 - Z. Sun, M. Ozay, and T. Okatani, “HYPERNETWORKS WITH STATISTICAL FILTERING FOR DEFENDING ADVERSARIAL EXAMPLES.”
 - C. Xie, Z. Zhang, A. L. Yuille, J. Wang, and Z. Ren, “MITIGATING ADVERSARIAL EFFECTS THROUGH RANDOMIZATION.”
 - K. Grosse, P. Manoharan, N. Papernot, M. Backes, and P. Mcdaniel, “On the (Statistical) Detection of Adversarial Examples.”
 - J. Z. Kolter and E. Wong, “Provable defenses against adversarial examples via the convex outer adversarial polytope,” 2017.
-- Z. Zhao, D. Dua, and S. Singh, “GENERATING NATURAL ADVERSARIAL EXAMPLES.”
-- Y. Song, T. Kim, S. Nowozin, S. Ermon, and N. Kushman, “PIXELDEFEND: LEVERAGING GENERATIVE MODELS TO UNDERSTAND AND DEFEND AGAINST ADVERSARIAL EXAMPLES.”
-- J. Sokolic, R. Giryes, G. Sapiro, and M. R. D. Rodrigues, “Robust Large Margin Deep Neural Networks,” May 2016.
 - R. Huang, B. Xu, D. Schuurmans, and C. Szepesvári, “LEARNING WITH A STRONG ADVERSARY.”
 - P.-Y. Chen, H. Zhang, Y. Sharma, J. Yi, and C.-J. Hsieh, “ZOO: Zeroth Order Optimization based Black-box Attacks to Deep Neural Networks without Training Substitute Models.”
 - J. Hayes and G. Danezis, “Machine Learning as an Adversarial Service: Learning Black-Box Adversarial Examples.”
