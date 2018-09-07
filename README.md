@@ -24,7 +24,7 @@ There are many publications in this area coming out almost every week so I want 
 - F. Tramèr, N. Papernot, I. Goodfellow, D. Boneh, and P. Mcdaniel, “The Space of Transferable Adversarial Examples.”
 - M. Cisse, Y. Adi, N. Neverova, and J. Keshet, “Houdini: Fooling Deep Structured Prediction Models.”
   - Generating adversarial examples using surrogate loss in place of real non-differentiable task loss
-- W. Brendel, J. Rauber, and M. Bethge, “DECISION-BASED ADVERSARIAL ATTACKS: RELIABLE ATTACKS AGAINST BLACK-BOX MACHINE LEARNING MODELS,” 2017. [[link]](https://arxiv.org/abs/1712.04248)
+- W. Brendel, J. Rauber, and M. Bethge, “Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models,” 2017. [[link]](https://arxiv.org/abs/1712.04248)
   - Attack that requires only the classifier's output (# of queries $\approx10^5$). Start with an image of target class and move towards a desired benign image.
 - Xiao et al., "SPATIALLY TRANSFORMED ADVERSARIAL EXAMPLES," 2018.
 ### Attacks with GAN
@@ -37,17 +37,23 @@ There are many publications in this area coming out almost every week so I want 
 
 ## Defenses
 - N. Papernot, P. McDaniel, X. Wu, S. Jha, and A. Swami, “Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks,” 2015.
-- A. Kurakin, G. Brain, I. J. Goodfellow, and S. Bengio, “ADVERSARIAL MACHINE LEARNING AT SCALE.”
+- A. Kurakin, G. Brain, I. J. Goodfellow, and S. Bengio, “Adversarial Machine Learning at Scale.”
   - First introduction of adversarial training with FGSM
 - S. Gu, L. Rigazio, "Towards Deep Neural Network Architectures Robust to Adversarial Examples," 2015.
 - :+1: &nbsp; A. Mądry, A. Makelov, L. Schmidt, D. Tsipras, and A. Vladu, “Towards Deep Learning Models Resistant to Adversarial Attacks.”
   - Adversarial training with PGD provides strong defense (MNIST, CIFAR) even in white-box setting
 - S. Zheng, T. Leung, and I. Goodfellow, “Improving the Robustness of Deep Neural Networks via Stability Training.”
-- H. Kannan, A. Kurakin, I. Goodfellow, "Adversarial Logit Pairing," 2018.
+- :+1: &nbsp; H. Kannan, A. Kurakin, I. Goodfellow, "Adversarial Logit Pairing," 2018.
 - A. Galloway, T. Tanay, G. Taylor, "Adversarial Training Versus Weight Decay," 2018.
-- A. Mosca, G. Magoulas, "Hardening against adversarial examples with the smooth gradient method," 2018.
-- A. Raghunathan, J. Steinhardt, P. Liang, "Certified Defenses against Adversarial Examples," 2018.
-### Defenses with GAN
+- A. Mosca, and G. Magoulas, "Hardening against adversarial examples with the smooth gradient method," 2018.
+- A. Raghunathan, J. Steinhardt, and P. Liang, "Certified Defenses against Adversarial Examples," 2018.
+- W. Xu, D. Evans, and Q. Yanjun, "Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks," NDSS 2018. [[link]](https://arxiv.org/abs/1704.01155)
+  - Experiment with three "feature squeezing": reduce bit depth, local smoothing, non-local smoothing 
+  - Evaluated on MNIST, CIFAR-10, ImageNet. Some performance drop on CIFAR-10 and ImageNet
+  - Each method works well with different types of norms (i.e. bit depth reduction is very good against $L_2$ or $L_\infty$, smoothing is good against $L_0$, etc.)
+  - Can be used as a detector by comparing ($L_1$ distance) logits of the input before and after squeezing
+  - Obvious adaptive adversary does not succeed 
+### Defenses with GAN, VAE
 - Y. Song, T. Kim, S. Nowozin, S. Ermon, and N. Kushman, “PIXELDEFEND: LEVERAGING GENERATIVE MODELS TO UNDERSTAND AND DEFEND AGAINST ADVERSARIAL EXAMPLES.”
 - S. Shen, G. Jin, K. Gao, and Y. Zhang, “APE-GAN: Adversarial Perturbation Elimination with GAN.”
 - D. Meng and H. Chen, “MagNet: a Two-Pronged Defense against Adversarial Examples.” [[link]](https://arxiv.org/abs/1705.09064)
@@ -60,6 +66,10 @@ There are many publications in this area coming out almost every week so I want 
   - Use gradient descent to search a latent variable $z$ that produces a sample $G(z)$ closest in L2 distance to a given input $x$, i.e. $\min ||G(z) - x||_2^2$
   - Problems: require GAN that can model the data distribution (almost) perfectly, GD steps add lots of overhead, still vulnerable to on-distribution adversarial examples
 - Ilyas et al., "The Robust Manifold Defense: Adversarial Training using Generative Models," 2018.
+- L. Schott et al., "Towards the First Adversarially Robust Neural Network Model on MNIST," 2018. [[link]](https://arxiv.org/abs/1805.09190)
+  - ABS (Analysis by Synthesis): train VAE for each class of MNIST, use GD to find a point in the latent space that minimizes lower bound of log-likelihood (for VAE's of all classes), finetune with learnable class-dependent scalar, pass to softmax for classification
+  -  Greate evaluation: evaluated on different attacks, norms, and with multiple defenses. For each sample, use many attacks and report one with smallest distortion
+  -  ABS seems to be the most robust model for all norms ($L_0, L_2, L_\infty$), but successful attacks on ABS have a high variance of distortion
 ### Beating Defenses
   - N. Carlini and D. Wagner, “Adversarial Examples Are Not Easily Detected: Bypassing Ten Detection Methods.”
   - W. He, J. Wei, X. Chen, and N. Carlini, “Adversarial Example Defenses: Ensembles of Weak Defenses are not Strong.”
@@ -118,6 +128,9 @@ There are many publications in this area coming out almost every week so I want 
 
 ## Useful Links
 - https://github.com/tensorflow/cleverhans
+- https://evademl.org/
+- https://github.com/mzweilin/EvadeML-Zoo
+- https://github.com/MadryLab/mnist_challenge
 
 ---
 
