@@ -29,6 +29,8 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
 - N. Papernot, P. Mcdaniel, I. Goodfellow, S. Jha, Z. B. Celik, and A. Swami, **Practical Black-Box Attacks against Deep Learning Systems using Adversarial Examples.**
 - N. Papernot, P. McDaniel, S. Jha, M. Fredrikson, Z. B. Celik, and A. Swami, **The Limitations of Deep Learning in Adversarial Settings**, IEEE, Nov. 2015.
 - N. Papernot, P. Mcdaniel, A. Sinha, and M. Wellman, **SoK : Towards the Science of Security and Privacy in Machine Learning.**
+- :+1: &nbsp; J. Gilmer et al., **Motivating the Rules of the Game for Adversarial Example Research**, 2018. [[link]](https://arxiv.org/abs/1807.06732)
+  - Analyze and propose different threat models for adversarial examples in the context of real-world security-critical applications
   
 ---
 
@@ -47,7 +49,8 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
   - Generating adversarial examples using surrogate loss in place of real non-differentiable task loss
 - W. Brendel, J. Rauber, and M. Bethge, **Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models**, 2017. [[link]](https://arxiv.org/abs/1712.04248)
   - Attack that requires only the classifier's output (# of queries $\approx10^5$). Start with an image of target class and move towards a desired benign image.
-- Xiao et al., **SPATIALLY TRANSFORMED ADVERSARIAL EXAMPLES**, 2018.
+- Xiao et al., **Spatially Transformed Adversarial Examples**, ICLR 2018. [[link]](https://arxiv.org/abs/1801.02612) [[Github]](https://github.com/rakutentech/stAdv)
+  - White-box attack using GD on a different objective function calculated from displacement of pixels (called *flow*), use differentiable bilinear interpolation for continuous (and differentiable) objective function 
 ### Attacks with GAN
 - Z. Zhao, D. Dua, and S. Singh, **GENERATING NATURAL ADVERSARIAL EXAMPLES.**
 - J. Hayes, G. Danezis, **Learning Universal Adversarial Perturbations with Generative Models.**
@@ -69,20 +72,20 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
 - A. Mosca, and G. Magoulas, **Hardening against adversarial examples with the smooth gradient method**, 2018.
 - A. Raghunathan, J. Steinhardt, and P. Liang, **Certified Defenses against Adversarial Examples**, 2018.
 - W. Xu, D. Evans, and Q. Yanjun, **Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks**, NDSS 2018. [[link]](https://arxiv.org/abs/1704.01155)
-  - Experiment with three **feature squeezing**: reduce bit depth, local smoothing, non-local smoothing 
+  - Experiment with three "feature squeezing": reduce bit depth, local smoothing, non-local smoothing 
   - Evaluated on MNIST, CIFAR-10, ImageNet. Some performance drop on CIFAR-10 and ImageNet
   - Each method works well with different types of norms (i.e. bit depth reduction is very good against $L_2$ or $L_\infty$, smoothing is good against $L_0$, etc.)
   - Can be used as a detector by comparing ($L_1$ distance) logits of the input before and after squeezing
   - Obvious adaptive adversary does not succeed 
 ### Defenses with GAN, VAE
-- Y. Song, T. Kim, S. Nowozin, S. Ermon, and N. Kushman, **PIXELDEFEND: LEVERAGING GENERATIVE MODELS TO UNDERSTAND AND DEFEND AGAINST ADVERSARIAL EXAMPLES.**
-- S. Shen, G. Jin, K. Gao, and Y. Zhang, **APE-GAN: Adversarial Perturbation Elimination with GAN.**
+- Y. Song at al., **PixelDefend: Leveraging Generative Models to Understand and Defend Against Adversarial Examples**, 2017. [[link]](https://arxiv.org/abs/1710.10766)
+- S. Shen et al., **APE-GAN: Adversarial Perturbation Elimination with GAN.**
 - D. Meng and H. Chen, **MagNet: a Two-Pronged Defense against Adversarial Examples.** [[link]](https://arxiv.org/abs/1705.09064)
-  - Use autoencoder to **detect** and **reform** adversarial examples. 
+  - Use autoencoder to "detect" and "reform" adversarial examples. 
   - Detect: measure probability divergence (Jensen-Shannon divergence + temperature) on classifier's after-softmax output
   - Reform: use output of autoencoder to reconstruct adversarial examples (hoping that it will be reconstructed to the valid distribution)
     - Problem: autoencoder is not perfect as it incurs some reconstruction loss, which is also in some L-p norm. White-box attack can easily obtain the gradient.
-- P. Samangouei, M. Kabkab, R. Chellappa, **Defense-GAN: Protecting Classifiers Against Adversarial Attacks Using Generative Models**, 2018. [[link]](https://arxiv.org/abs/1805.06605)
+- P. Samangouei, M. Kabkab, and R. Chellappa, **Defense-GAN: Protecting Classifiers Against Adversarial Attacks Using Generative Models**, 2018. [[link]](https://arxiv.org/abs/1805.06605)
   - Use WGAN trained on MNIST (F-MNIST, CelebA) in addition to any black-box neural network, which is trained on the same training set. Works against both white-box and black-box attacks.
   - Use gradient descent to search a latent variable $z$ that produces a sample $G(z)$ closest in L2 distance to a given input $x$, i.e. $\min ||G(z) - x||_2^2$
   - Problems: require GAN that can model the data distribution (almost) perfectly, GD steps add lots of overhead, still vulnerable to on-distribution adversarial examples
@@ -152,6 +155,7 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
 - https://evademl.org/
 - https://github.com/mzweilin/EvadeML-Zoo
 - https://github.com/MadryLab/mnist_challenge
+- http://adversarial-learning.princeton.edu/
 
 ---
 
