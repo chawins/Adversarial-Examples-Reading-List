@@ -23,19 +23,22 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
 ---  
 
 ## Background
-- :+1::+1: &nbsp; C. Szegedy, J. Bruna, D. Erhan, and I. Goodfellow, **Intriguing Properties of Neural Networks**, ICLR 2014. [[link]](https://arxiv.org/abs/1312.6199)
-- :+1::+1: &nbsp; I. J. Goodfellow, J. Shlens, and C. Szegedy, **Explaining and Harnessing Adversarial Examples**, ICLR 2015. [[link]](https://arxiv.org/abs/1412.6572) 
+- :+1: &nbsp; C. Szegedy, J. Bruna, D. Erhan, and I. Goodfellow, **Intriguing Properties of Neural Networks**, ICLR 2014. [[link]](https://arxiv.org/abs/1312.6199)
+- :+1: &nbsp; I. J. Goodfellow, J. Shlens, and C. Szegedy, **Explaining and Harnessing Adversarial Examples**, ICLR 2015. [[link]](https://arxiv.org/abs/1412.6572) 
 - :+1: &nbsp; A. Nguyen, J. Yosinski, and J. Clune, **Deep Neural Networks are Easily Fooled**, CVPR, 2015 IEEE Conf., pp. 427–436, 2015.
 - :+1: &nbsp; N. Papernot, P. Mcdaniel, I. Goodfellow, S. Jha, Z. B. Celik, and A. Swami, **Practical Black-Box Attacks against Deep Learning Systems using Adversarial Examples.**
 - :+1: &nbsp; N. Papernot, P. McDaniel, S. Jha, M. Fredrikson, Z. B. Celik, and A. Swami, **The Limitations of Deep Learning in Adversarial Settings**, IEEE, Nov. 2015.
 - :+1: &nbsp; N. Papernot, P. Mcdaniel, A. Sinha, and M. Wellman, **SoK : Towards the Science of Security and Privacy in Machine Learning.**
-- :+1::+1: &nbsp; J. Gilmer et al., **Motivating the Rules of the Game for Adversarial Example Research**, 2018. [[link]](https://arxiv.org/abs/1807.06732)
+- :+1: &nbsp; J. Gilmer et al., **Motivating the Rules of the Game for Adversarial Example Research**, 2018. [[link]](https://arxiv.org/abs/1807.06732)
   - Analyze and propose different threat models for adversarial examples in the context of real-world security-critical applications
   
 ---
 
 ## Attacks
-- :+1::+1: &nbsp; N. Carlini and D. Wagner, **Towards Evaluating the Robustness of Neural Networks.**
+- :+1: &nbsp; N. Carlini and D. Wagner, **Towards Evaluating the Robustness of Neural Networks.**
+- :+1: &nbsp; Sabour et al., **Adversarial Manipulation of Deep Rrepresentations**, ICLR 2016.
+  - Create adversarial examples by matching deep representation of an original sample to that of a guide sample by reducing $$\ell_2$$ distance of deep representations under a box constraint in the pixel space. 
+  - Through some analyses, the adversarial examples are found to be __more similar__ to the guide sample than the original despite little change in pixel space. A number of experiments shows that the nature of this deep-representation adversarial examples is very different from that of the normal ones. The experiment with random network weights suggest that this phenomenon might be caused by network architecture rather than the learning algorithm itself.
 - P.-Y. Chen, Y. Sharma, H. Zhang, J. Yi, and C.-J. Hsieh, **EAD: Elastic-Net Attacks to Deep Neural Networks via Adversarial Examples.**
 - O. Poursaeed, I. Katsman, B. Gao, and S. Belongie, **Generative Adversarial Perturbations.**
 - S. Baluja and I. Fischer, **Adversarial Transformation Networks: Learning to Generate Adversarial Examples.**
@@ -64,7 +67,7 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
 - :+1: &nbsp; A. Kurakin, G. Brain, I. J. Goodfellow, and S. Bengio, **Adversarial Machine Learning at Scale.**
   - First introduction of adversarial training with FGSM
 - S. Gu, L. Rigazio, **Towards Deep Neural Network Architectures Robust to Adversarial Examples**, 2015.
-- :+1::+1: &nbsp; A. Mądry, A. Makelov, L. Schmidt, D. Tsipras, and A. Vladu, **Towards Deep Learning Models Resistant to Adversarial Attacks.**
+- :+1: &nbsp; A. Mądry, A. Makelov, L. Schmidt, D. Tsipras, and A. Vladu, **Towards Deep Learning Models Resistant to Adversarial Attacks.**
   - Adversarial training with PGD provides strong defense (MNIST, CIFAR) even in white-box setting
 - S. Zheng, T. Leung, and I. Goodfellow, **Improving the Robustness of Deep Neural Networks via Stability Training.**
 - :+1: &nbsp; H. Kannan, A. Kurakin, I. Goodfellow, **Adversarial Logit Pairing**, 2018.
