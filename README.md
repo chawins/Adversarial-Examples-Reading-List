@@ -168,6 +168,7 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
 - https://github.com/mzweilin/EvadeML-Zoo
 - https://github.com/MadryLab/mnist_challenge
 - http://adversarial-learning.princeton.edu/
+- https://secml.github.io/
 
 ---
 
