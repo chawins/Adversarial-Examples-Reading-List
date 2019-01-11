@@ -57,7 +57,7 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
 - :+1: &nbsp; Xiao et al., **Spatially Transformed Adversarial Examples**, ICLR 2018. [[link]](https://arxiv.org/abs/1801.02612) [[Github]](https://github.com/rakutentech/stAdv)
   - White-box attack using GD on a different objective function calculated from displacement of pixels (called *flow*), use differentiable bilinear interpolation for continuous (and differentiable) objective function.
 - :+1: &nbsp; **The Limitation of Adversarial Training and the Blind-Spot Attack**, ICLR 2019
-  - Measure (1) distance from one test sample to all training samples with mean distance of the $$k$$ nearest neighbors in an arbitrary deep representation, (2) KL divergence of training and test sets (use same deep representation as (1), project with t-SNE, then KDE)
+  - Measure (1) distance from one test sample to all training samples with mean distance of the $k$-nearest neighbors in an arbitrary deep representation, (2) KL divergence of training and test sets (use same deep representation as (1), project with t-SNE, then KDE)
   - Blind-spot attack: find test sample __far away__ from the training samples by pixel-wise affine transform and clipping to [0, 1], then use CW $\ell_\infty$ attack
   - Very successful against adversarial training: the attack is far from the learned manifold, even for adversarial training. Interestingly, the affine transformation part does not affect clean accuracy at all. So the network generalizes to such transformation, but the transformation does put the starting sample in a __more vulnerable__ region.
 
@@ -127,7 +127,7 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
   - ABS seems to be the most robust model for all norms ($\ell_0, \ell_2, \ell_\infty$), but successful attacks on ABS have a high variance of distortion
 - Jasjeet Dhaliwal, Saurabh Shintre, **Gradient Similarity: An Explainable Approach to Detect Adversarial Attacks against Deep Learning**, 2018.
   - Gradient similarity defined between a pair of train and test samples, taken from influence function (Koh and Liang 2017), but the Hessian is omitted as they show that the Hessian only scales with constant. $GS(x^*,x') = \nabla_\theta L(\theta^*, x', y')^T \cdot \nabla_\theta L(\theta^*, x^*, y^*)$
-  - GS is separated into two features: $$\ell_2$$-norm of gradient and cosine of the angle between the two gradient terms. Logistic regression is trained on the features, half clean and half adversarial (FGSM, BIM, CW, DeepFool, JSMA). Works well against adversaries that have no knowledge of the defense, but fails in white-box setting.
+  - GS is separated into two features: $\ell_2$-norm of gradient and cosine of the angle between the two gradient terms. Logistic regression is trained on the features, half clean and half adversarial (FGSM, BIM, CW, DeepFool, JSMA). Works well against adversaries that have no knowledge of the defense, but fails in white-box setting.
 
 ### Beating Defenses
 
