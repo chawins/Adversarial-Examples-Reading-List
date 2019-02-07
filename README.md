@@ -240,8 +240,8 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
 
 ## To-Read
 
+- Grosse et al., **The Limitations of Model Uncertainty in Adversarial Settings**, 2018.
 - A. Bagnall, R. Bunescu, and G. Stewart, **Training Ensembles to Detect Adversarial Examples**, 2017.
-- K. Grosse, D. Pfaff, M. T. Smith, and M. Backes, **How Wrong Am I? — Studying Adversarial Examples and their Impact on Uncertainty in Gaussian Process Machine Learning Models.**
 - Z. Sun, M. Ozay, and T. Okatani, **HYPERNETWORKS WITH STATISTICAL FILTERING FOR DEFENDING ADVERSARIAL EXAMPLES.**
 - C. Xie, Z. Zhang, A. L. Yuille, J. Wang, and Z. Ren, **MITIGATING ADVERSARIAL EFFECTS THROUGH RANDOMIZATION.**
 - J. Z. Kolter and E. Wong, **Provable defenses against adversarial examples via the convex outer adversarial polytope**, 2017.
