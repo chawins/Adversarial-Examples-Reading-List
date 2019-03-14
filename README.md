@@ -126,7 +126,7 @@ I recommend using **TeX All the Things** Chrome Extension for viewing math equat
   - Greate evaluation: evaluated on different attacks, norms, and with multiple defenses. For each sample, use many attacks and report one with smallest distortion
   - ABS seems to be the most robust model for all norms ($\ell_0, \ell_2, \ell_\infty$), but successful attacks on ABS have a high variance of distortion
 - Jasjeet Dhaliwal, Saurabh Shintre, **Gradient Similarity: An Explainable Approach to Detect Adversarial Attacks against Deep Learning**, 2018.
-  - Gradient similarity defined between a pair of train and test samples, taken from influence function (Koh and Liang 2017), but the Hessian is omitted as they show that the Hessian only scales with constant. $GS(x^*,x') = \nabla_\theta L(\theta^*, x', y')^T \cdot \nabla_\theta L(\theta^*, x^*, y^*)$
+  - Gradient similarity defined between a pair of train and test samples, taken from influence function (Koh and Liang 2017), but the Hessian is omitted as they show that the Hessian only scales with constant. $GS(\hat{x},x') = \nabla_\theta L(\hat{\theta}, x', y')^T \cdot \nabla_\theta L(\hat{\theta}, \hat{x}, \hat{y})$
   - GS is separated into two features: $\ell_2$-norm of gradient and cosine of the angle between the two gradient terms. Logistic regression is trained on the features, half clean and half adversarial (FGSM, BIM, CW, DeepFool, JSMA). Works well against adversaries that have no knowledge of the defense, but fails in white-box setting.
 
 ### Beating Defenses
