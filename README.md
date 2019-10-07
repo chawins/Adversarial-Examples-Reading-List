@@ -184,7 +184,6 @@ A compilation of papers in adversarial examples that I have read or plan to read
   - Lipschitz network can certify adversarial robustness but in this work, the bound is still slightly loose. Robustness of MNIST is still far inferior compared to Madry et al. (~40% to ~95% accuracy at $\epsilon = 0.3$)
 - :+1: &nbsp; Huster et al., **Limitations of the Lipschitz Constant as a Defense Against Adversarial Examples**, 2018.
   - Prove a tighter perturbation bound with Lipschitz constant in binary case: assume that any pair of samples from two different classes is at least $c$ apart in $\ell_p$, there exists a $2/c$-Lipschitz function $f$ such that $sign(f(x+\delta))=y$ for $||\delta||_p < c/2$. An example of such Lipschitz function is given.
-    - have to check proof for case $f(x)=0$ and how to ensure the assumption for test set (if it is needed).
   - The bound is, however, coupled with distance $c$ of the dataset. This assumption must be required for any K-Lipschitz bound that tries to achieve 100% accuracy. What's an effective way to balance clean accuracy and robustness with Lipschitz?
   - Given a fully-connected network with ReLU activation, they also show that "atomic" Lipschitz constant, $k_A$ (product of weight norm from each layer) is limiting. It suffers accuracy loss and cannot express some functions (e.g. absolute function which has $k=1$ cannot be expressed by a network with $k_A<2$.
   - Theoretical results make sense, but in practice, this might come down to training methods and how the Lipschitz constant is bounded/penalized. It might be less limiting for real datasets with appropriate techniques.
@@ -298,6 +297,13 @@ A compilation of papers in adversarial examples that I have read or plan to read
 - :+1: &nbsp; Franceschi et al., **Robustness of classifiers to uniform $\ell_p$ and Gaussian noise**, 2018.
 - :+1: &nbsp; Fawsi et al., **Robustness of classifiers: from adversarial to random noise**, NeurIPS 2016.
 - :+1: &nbsp; Fawsi et al., **The robustness of deep networks: A geometrical perspective**, 2017.
+- Tramer and Boneh, **Adversarial Training and Robustness for Multiple Perturbations**, NeurIPS 2019. 
+  - Analyze the same simple dataset as Tsipras et al. 2019 (1 robust and d non-robust features) and show that the robustness against $\ell_\infty$ and $\ell_1$ perturbations is "mutually exclusive" (adversarial accuracy in one comes at a cost of the other) with a specific perturbation size. A more complicated proof shows a similar (but tighter) relationship between $\ell_\infty$ and rotation-translation (RT) perturbation.
+  - They analyze that "affine transformation" of multiple perturbation types (actually more like convex combination of points in each perturbation set) and show that for linear classifiers, affine transformation of $\ell_p$-based attacks is equivalent to their union. But this is not the case for "affine transformation" between $\ell_\infty$ and RT (note that affine transformation with RT does not follow the strict definition) as well as in the nonlinear case. 
+  - On MNIST and CIFAR-10, they show adversarial training on two types of perturbations by training the model on (1) both samples and take average of the loss (avg) or (2) only the stronger one (max). The two methods have comparable robustness. Both perform better than single-perturbation models on the perturbation they are not trained on but worse on the one they are trained on.
+  - They also confirm an observation that models trained on $\ell_\infty$ "learn a threshold function in the first layer" on MNIST which results in gradient masking for $\ell_1$ and $\ell_2$ attacks. But, perhaps interestingly, models trained on $\ell_1$ or $\ell_2$ perturbation directly do not learn this "trick".
+  - They also propose a more efficient $$\ell_1$$-attack than PGD and less expensive than EAD attack.
+
 
 ### Hardness of Defense
 - A. Fawzi, O. Fawzi, and P. Frossard, **Analysis of classifiers’ robustness to adversarial perturbations.**
