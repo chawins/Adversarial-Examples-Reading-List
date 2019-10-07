@@ -1,6 +1,6 @@
 # Adversarial Examples Reading List
 A compilation of papers in adversarial examples that I have read or plan to read. The number of papers in this subfield can be overwhelming. I hope this list is helpful for anyone who is interested in entering the field or looking for a quick survey. The list is by no means exhaustive so any paper suggestion is very welcome. The order of the papers is arbitrary. Couple of notes:
-- :+1: simply denotes papers that, solely based on my __personal__ opinion, are influential to the way I think about adversarial examples.
+- :+1: simply denotes papers that, solely based on my _personal_ opinion, are influential to the way I think about adversarial examples.
 - Some papers will have a short summary I wrote to remind myself what the paper is about + my personal thoughts/reactions. It is not a complete description of the paper.
 - I recommend using **TeX All the Things** Chrome Extension for viewing math equations on this page.
 - Do expect mistakes, misunderstanding, and shallow interpretation as I am an ignorant PhD student. Please correct me if you found one of those mistakes. I will really appreciate it.
@@ -40,38 +40,49 @@ A compilation of papers in adversarial examples that I have read or plan to read
 - :+1: &nbsp; N. Papernot, P. Mcdaniel, I. Goodfellow, S. Jha, Z. B. Celik, and A. Swami, **Practical Black-Box Attacks against Deep Learning Systems using Adversarial Examples.**
 - :+1: &nbsp; N. Papernot, P. McDaniel, S. Jha, M. Fredrikson, Z. B. Celik, and A. Swami, **The Limitations of Deep Learning in Adversarial Settings**, IEEE, Nov. 2015.
 - :+1: &nbsp; N. Papernot, P. Mcdaniel, A. Sinha, and M. Wellman, **SoK : Towards the Science of Security and Privacy in Machine Learning.**
+- :+1: &nbsp; Gilmer et al., **Motivating the Rules of the Game for Adversarial Example Research**, 2018. [[link]](https://arxiv.org/abs/1807.06732)
+  - Analyze and propose different threat models for adversarial examples in the context of real-world security-critical applications
 
 ---
 
 ## Attacks
+
+### Norm Ball ($\ell_0$, $\ell_1$, $\ell_2$, $\ell_\infty$)
 
 - :+1: &nbsp; Sabour et al., **Adversarial Manipulation of Deep Rrepresentations**, ICLR 2016.
   - Create adversarial examples by matching deep representation of an original sample to that of a guide sample by reducing $\ell_2$ distance of deep representations under a box constraint in the pixel space.
   - Through some analyses, the adversarial examples are found to be __more similar__ to the guide sample than the original despite little change in pixel space. A number of experiments shows that the nature of this deep-representation adversarial examples is very different from that of the normal ones. The experiment with random network weights suggest that this phenomenon might be caused by network architecture rather than the learning algorithm itself.
 - :+1: &nbsp; N. Carlini and D. Wagner, **Towards Evaluating the Robustness of Neural Networks**, IEEE SP 2017.
 - P.-Y. Chen, Y. Sharma, H. Zhang, J. Yi, and C.-J. Hsieh, **EAD: Elastic-Net Attacks to Deep Neural Networks via Adversarial Examples.**
-- O. Poursaeed, I. Katsman, B. Gao, and S. Belongie, **Generative Adversarial Perturbations.**
-- S. Baluja and I. Fischer, **Adversarial Transformation Networks: Learning to Generate Adversarial Examples.**
-  - Train neural net to generate adversarial examples
 - F. Tramèr, A. Kurakin, N. Papernot, D. Boneh, and P. Mcdaniel, **Ensemble Adversarial Training: Attacks and Defenses.**
 - :+1: &nbsp; S.-M. Moosavi-Dezfooli, A. Fawzi, O. Fawzi, and P. Frossard, **Universal adversarial perturbations**, 2016.
 - :+1: &nbsp; S.-M. Moosavi-Dezfooli, A. Fawzi, and P. Frossard, **DeepFool: a simple and accurate method to fool deep neural networks**, CVPR, pp. 2574–2582, 2016.
 - :+1: &nbsp; M. Cisse, Y. Adi, N. Neverova, and J. Keshet, **Houdini: Fooling Deep Structured Prediction Models.**
   - Generating adversarial examples using surrogate loss in place of real non-differentiable task loss
+- Dong et al., **Boosting Adversarial Attacks with Momentum**, CVPR 2018.
+  - Iterative $\ell_\infty$ gradient attack with momentum update. Improve transferability without hurting white-box success rate, but the increase in success rate might be attributed to larger $\ell_2$ norm.
+
+### Non-Gradient Attacks
+
+Norm-ball attacks but does not rely on gradient descent
 - :+1: &nbsp; W. Brendel, J. Rauber, and M. Bethge, **Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models**, 2017. [[link]](https://arxiv.org/abs/1712.04248)
   - Attack that requires only the classifier's output (# of queries $\approx10^5$). Start with an image of target class and move towards a desired benign image.
+- Many more...
+
+### Non-Norm Ball
+
+- S. Baluja and I. Fischer, **Adversarial Transformation Networks: Learning to Generate Adversarial Examples.**
+  - Train neural net to generate adversarial examples
 - :+1: &nbsp; Xiao et al., **Spatially Transformed Adversarial Examples**, ICLR 2018. [[link]](https://arxiv.org/abs/1801.02612) [[Github]](https://github.com/rakutentech/stAdv)
   - White-box attack using GD on a different objective function calculated from displacement of pixels (called *flow*), use differentiable bilinear interpolation for continuous (and differentiable) objective function.
 - :+1: &nbsp; **The Limitation of Adversarial Training and the Blind-Spot Attack**, ICLR 2019
   - Measure (1) distance from one test sample to all training samples with mean distance of the $k$-nearest neighbors in an arbitrary deep representation, (2) KL divergence of training and test sets (use same deep representation as (1), project with t-SNE, then KDE)
   - Blind-spot attack: find test sample __far away__ from the training samples by pixel-wise affine transform and clipping to [0, 1], then use CW $\ell_\infty$ attack
   - Very successful against adversarial training: the attack is far from the learned manifold, even for adversarial training. Interestingly, the affine transformation part does not affect clean accuracy at all. So the network generalizes to such transformation, but the transformation does put the starting sample in a __more vulnerable__ region.
-- Dong et al., **Boosting Adversarial Attacks with Momentum**, CVPR 2018.
-  - Iterative $\ell_\infty$ gradient attack with momentum update. Improve transferability without hurting white-box success rate, but the increase in success rate might be attributed to larger $\ell_2$ norm.
-
 
 ### Attacks with GAN
 
+A subset of non-norm ball attacks.
 - Z. Zhao, D. Dua, and S. Singh, **Generating Natural Adversarial Examples.**
 - J. Hayes, G. Danezis, **Learning Universal Adversarial Perturbations with Generative Models.**
 - Xiao et al., **GENERATING ADVERSARIAL EXAMPLES WITH ADVERSARIAL NETWORKS**, 2018.
@@ -125,6 +136,13 @@ A compilation of papers in adversarial examples that I have read or plan to read
 - S. Srisakaokul, Z. Zhong, Y. Zhang, W. Yang, and T. Xie, **MULDEF: Multi-model-based Defense Against Adversarial Examples for Neural Networks**, 2018. [[link]](https://arxiv.org/abs/1809.00065)
   - They propose a simple scheme of adversarial training with multiple models: to summarize, the first model is trained on clean samples, and each of the subsequent models is trained on a union of clean samples and FGSM adversarial examples generated from all of the models before it.
   - The robustness relies on the random model selection, and each model is not robust to its own adversarial examples but significantly more robust to adversarial examples generated from the other models.
+- Cai et al., **Curriculum Adversarial Training**, IJCAI 2018.
+  - CAT improves adversarial training (AT) using curriculum training framework where "harder samples" in this case corresponds to (1) using more steps in PGD to generate adversarial examples (Basic) and (2) a training batch comprised of increasingly larger portion of stronger adversarial examples (MIX). As a final step, they also combine with input quantization at test time. Experiments are carried out on CIFAR-10 and SVHN with $\ell_\infty$-adv on ResNet-50 and DenseNet-161.
+  - Training curve: adversarial accuracy on AT shoots up more rapidly but soon plateau after while CAT increases adversarial accuracy more slowly but exceeds AT eventually.
+  - The ablation study shows that quantization consistently improves robustness of all models. There is no clear trend for Basic and MIX as the results are heavily dependent on datasets. Basic and MIX alone can be better or worse than AT. Note that the evaluation uses "empirical worst-case accuracy" where best attack is chosen from PGD with various steps ($1 \leq K \leq 100$), CW, and black-box attack.
+  - Combining Basic + MIX is much worse than CAT (Basic + MIX + Quantization) or AT. The authors claim that this is because Basic + MIX does not to generalize to stronger attacks than the model is trained for, and that quantization helps solve this problem by memorizing now-finite input space.
+  MIX seems to be able to reduce the "catastrophic forgetting" problem: model trained with a large number of PGD steps (strong adv) is weak to attacks with a small number of steps (weak adv).
+
 - Mustafa et al., **Adversarial Defense by Restricting the Hidden Space of Deep Neural Networks**, 2019.
   - Propose a defense against adversarial examples, classifying samples by finding distance to "class mean" in the representation layer. The class mean is not really a mean but a trainable weight that is trained as an auxiliary loss (pull: mean & samples from same class. push: mean & samples from diff class, mean & mean from diff class) in addition to normal CE loss. Further improve robustness when combined with PGD/FGSM adversarial training.
   - The results are however not convincing. This method should perform much worse than Madry et al. on MNIST at $\epsilon = 0.3$, but the paper omits this result. Results on CIFAR-10 are also not SOTA.
@@ -189,7 +207,7 @@ A compilation of papers in adversarial examples that I have read or plan to read
   - Theoretical results make sense, but in practice, this might come down to training methods and how the Lipschitz constant is bounded/penalized. It might be less limiting for real datasets with appropriate techniques.
   - They show that "paired-layer" Lipschitz bound is tighter. This method is used by Raghunathan et al. on two-layer network: $k \leq \max_s ||W_2diag(s)W_1||$ where $s$ is a binary vector indicating which ReLU is on/off. While the bound is tighter in this one (e.g. works with absolute function), it is still not perfect.
   - GroupSort (Anil et al.) tackles this problem differently by using a different activation function completely. GroupSort allows this bound to be tight, but it seems to still hit the fundamental limit in the first assumption.
-- Qian & Wegman, **L2-Nonexpansive Neural Networks**, ICLR 2019.
+- Qian and Wegman, **L2-Nonexpansive Neural Networks**, ICLR 2019.
   - Proposes network architecture that preserves $\ell_2$-norm ("distance") of input and output, i.e. Lipschitz from input to logits is less than or equal to 1 under $\ell_2$-norm. To constrain the weight's spectral norm, $||W^TW||_2 \leq 1$, use an $\ell_\infty$ upper bound. ReLU is replaced with two-sided ReLU, and max-pooling is replaced with norm-pooling. The loss function is complicated, consisting of three terms.
   - The weight constraint itself is more general than that of Parseval network.
   - Adversarial robustness is evaluated against CW L2 attacks. The $\ell_2$-norm is bounded at 3 for MNIST and 1.5 for CIFAR-10, and the model seems more robust than $\ell_\infty$ Madry model. Not all attacks succeed at this perturbation, and combining with adv. train further improves robustness slightly.
@@ -212,7 +230,7 @@ A compilation of papers in adversarial examples that I have read or plan to read
   - ABS (Analysis by Synthesis): train VAE for each class of MNIST, use GD to find a point in the latent space that minimizes lower bound of log-likelihood (for VAE's of all classes), finetune with learnable class-dependent scalar, pass to softmax for classification
   - Greate evaluation: evaluated on different attacks, norms, and with multiple defenses. For each sample, use many attacks and report one with smallest distortion
   - ABS seems to be the most robust model for all norms ($\ell_0, \ell_2, \ell_\infty$), but successful attacks on ABS have a high variance of distortion
-- Jasjeet Dhaliwal, Saurabh Shintre, **Gradient Similarity: An Explainable Approach to Detect Adversarial Attacks against Deep Learning**, 2018.
+- J. Dhaliwal and S. Shintre, **Gradient Similarity: An Explainable Approach to Detect Adversarial Attacks against Deep Learning**, 2018.
   - Gradient similarity defined between a pair of train and test samples, taken from influence function (Koh and Liang 2017), but the Hessian is omitted as they show that the Hessian only scales with constant. $GS(\hat{x},x') = \nabla_\theta L(\hat{\theta}, x', y')^T \cdot \nabla_\theta L(\hat{\theta}, \hat{x}, \hat{y})$
   - GS is separated into two features: $\ell_2$-norm of gradient and cosine of the angle between the two gradient terms. Logistic regression is trained on the features, half clean and half adversarial (FGSM, BIM, CW, DeepFool, JSMA). Works well against adversaries that have no knowledge of the defense, but fails in white-box setting.
 - Kyatham et al., **Variational Inference with Latent Space Quantization for Adversarial Robustness**, 2019.
@@ -247,17 +265,14 @@ A compilation of papers in adversarial examples that I have read or plan to read
 
 ## Theoretical & Empirical Analysis
 
-- O. Bastani, Y. Ioannou, L. Lampropoulos, D. Vytiniotis, A. V Nori, and A. Criminisi, **Measuring Neural Net Robustness with Constraints.**
+### Verification
 - Weng et al., **Evaluating the Robustness of Neural Networks: An Extreme Value Theory Approach**, ICLR 2018. [[link]](https://openreview.net/forum?id=BkUHlMZ0b)
   - Attempts to provide model-agnostic robustness metric as empirical robustness heavily depends on attack algorithms and models. CLEVER approximates lower bound of adversarial perturbation (by approximating local Lipschitz constant around a given sample).
   - Approximating the Lipschitz constant is done by Extreme Value Theory, or more precisely Fisher-Tippett-Gnedenko Theorem. For a given sample, CLEVER samples a large number of points in the norm ball around it, computes gradients, and estimates the Lipschitz constant as Reverse Weibull distribution. The experiment also shows that the chosen Reverse Weibull distribution is a "good fit."
   - While the CLEVER bound is mostly correct (no attack finds perturbation smaller than the bound), it is very loose even when compared with supposedly close-to-optimal attack like CW. CLEVER takes reasonable time to run (< 10s per samples) for a large network.
   - Gradient Masking Causes CLEVER to Overestimate Adversarial Perturbation Size: https://arxiv.org/pdf/1804.07870.pdf. A follow-up work: On Extensions of CLEVER: A Neural Network Robustness Evaluation Algorithm https://arxiv.org/pdf/1810.08640.pdf
-- A. Matyasko and L. Chau, **Margin Maximization for Robust Classification using Deep Learning**, pp. 300–307, 2017.
-- J. Sokolic, R. Giryes, G. Sapiro, and M. R. D. Rodrigues, **Robust Large Margin Deep Neural Networks**, May 2016.
-- E. D. Cubuk, B. Zoph, S. S. Schoenholz, Q. V Le, and G. Brain, **Intriguing Properties of Adversarial Examples.**
-  - Universal properties of small perturbation
-  - Improving robustness with larger logits difference
+
+### Robustness vs. Accuracy
 - D. Su, H. Zhang, H. Chen, J. Yi, P.Y. Chen, and Y. Gao, **Is Robustness the Cost of Accuracy? -- A Comprehensive Study on the Robustness of 18 Deep Image Classification Models**, ECCV 2018. [[link]](https://arxiv.org/abs/1808.01688)
   - There is a trade-off between robustness and test accuracy, i.e. $distortion \sim \log(classification~error)$
   - Network architecture affects robustness more than model size
@@ -270,16 +285,45 @@ A compilation of papers in adversarial examples that I have read or plan to read
   - Consider a simple model: input is $x_1, x_2, x_3$, network outputs $x_1 == x_2$. $x_3$ is thus "redundant" and all neurons connected to it should have weight of zero for the network to make no error, but this constraint on the weights grow exponentially on redundant input.
   - "General model" has two components: erasing noise/unrelated features, and matching with known patterns. Adversarial attacks simply create patterns or enough redundancy that the model cannot completely erase.
   - Hypothesis & experiment: (1) Adversarial examples are more "complex": (a) require larger networks to memorize/classify, (b) higher entropy (i.e. for MNIST, maximum likelihood, minimax, compression estimator). (2) More robust models learn features with less entropy.
+- Tsipras et al., **Robustness May Be at Odds with Accuracy**, ICLR 2019.
+
+### Adversarial Examples vs. Random Noise
+- :+1: &nbsp; Ford et al., **Adversarial Examples Are a Natural Consequence of Test Error in Noise**, 2018.
+  - Try to show that adversarial examples are not a surprising phenomenon and can be expected from any well-behaved classifiers. The $\epsilon$-boundary measure, probability that $x$ is $\epsilon$ away from the error set, is large even if  the error set itself is small.
+  - They also show, on CIFAR-10 and ImageNet, that training with different types of noises, especially Gaussian with large std, can moderately improve model's robustness against adversarial examples (but less than adversarial training). However, an adversarially trained model is also more susceptible to Gaussian noise but still better than the undefended model.
+  - Defenses that exhibit gradient masking (does not create a larger distance to boundary) do not improve robustness to other types of noise. Encourage improvement in robustness to general noise, and say that perfect accuracy under noises is nontrivial.
+- :+1: &nbsp; Franceschi et al., **Robustness of classifiers to uniform $\ell_p$ and Gaussian noise**, 2018.
+- :+1: &nbsp; Fawsi et al., **Robustness of classifiers: from adversarial to random noise**, NeurIPS 2016.
+- :+1: &nbsp; Fawsi et al., **The robustness of deep networks: A geometrical perspective**, 2017.
+
+### Concentration
+Hardness of defense, concentration inequality, curse of dimension
+- A. Fawzi, O. Fawzi, and P. Frossard, **Analysis of classifiers’ robustness to adversarial perturbations.**
+- Schmidt et al., **Adversarially Robust Generalization Requires More Data**, NeurIPS 2018.
+  - Study two simple data distributions (Gaussian and Bernoulli) and size of training set required for __any__ learning algorithm to have robust generalization. The gap between robust and normal generalization is a factor of $O(\sqrt{d})$ for Gaussian. For Bernoulli, with thresholding, the gap is $O(1)$.
+  - Experiment on MNIST shows that more training data is more robust, normal < threshold < adversarial training < adversarial training + threshold.
+- :+1: &nbsp; Mahloujifar et al., **The Curse of Concentration in Robust Learning: Evasion and Poisoning Attacks from Concentration of Measure**, 2018.
+  - Prove existence of adversarial examples with an assumption on Concentration of the measure. Shows that normal Levy family satisfies this assumption.
+- :+1: &nbsp; Shafahi et al., **Are adversarial examples inevitable?**, ICLR 2019.
+  - Provide bound on probability of finding an adversarial examples, independent on classifiers but dependent on data distribution (shape of input domain and __density__). The proofs are shown for a unit ball and a unit cube with upper-bounded density. Lower density and higher dimension mean higher probability.
+  - However, high dimension alone does not account for more susceptibility because the density also implicitly depends on dimension in an exponential manner which can end up nullifying an increase in dimension (that does not affect intrinsic density i.e. image resizing). Note that $\epsilon$ does increase for higher-dimension MNIST, but it scales with $\sqrt{n}$ for $\ell_2$. See Figure 4b. The authors argue that the probability rather depends on the density (or data __complexity__), comparing between two datasets of equal dimension.
+  - Probability of finding adversarial examples within $\epsilon$-ball is __at least__ $1 - U_c e^{-\pi \epsilon^2/2\pi}$ where $U_c$ is an upperbound of density function of class $c$.
+- Mahloujifar et al., **Empirically Measuring Concentration: Fundamental Limits on Intrinsic Robustness**, 2019.
+- :+1: &nbsp; Dohmatob, **Limitations of adversarial robustness: strong No Free Lunch Theorem**, ICML 2019.
+  - Provide a generalization of other previous works (Gilmer et al. 2018, Tsipras et al. 2018, etc.). Covers both geodesic distance and $\ell_p$-norm on flat space. Main tools are borrowed from measure theory (Talagrand W2 transportation-cost inequality, blow-up property).
+
+- O. Bastani, Y. Ioannou, L. Lampropoulos, D. Vytiniotis, A. V Nori, and A. Criminisi, **Measuring Neural Net Robustness with Constraints.**
+- A. Matyasko and L. Chau, **Margin Maximization for Robust Classification using Deep Learning**, pp. 300–307, 2017.
+- J. Sokolic, R. Giryes, G. Sapiro, and M. R. D. Rodrigues, **Robust Large Margin Deep Neural Networks**, May 2016.
+- E. D. Cubuk, B. Zoph, S. S. Schoenholz, Q. V Le, and G. Brain, **Intriguing Properties of Adversarial Examples.**
+  - Universal properties of small perturbation
+  - Improving robustness with larger logits difference
 - D. Stutz, M. Hein, and B. Schiele, **Disentangling Adversarial Robustness and Generalization**, 2018.
   - Define on- and off-manifold adversarial examples. Data manifold is assumed to be learned by VAE-GAN, or is approximated by subspace formed by some nearest neighbors.
     - What's a good way to approximate manifold locally?
   - Claim that regular (gradient-based) adversarial examples are off manifold by measuring distance between a sample and its projection on the "true manifold." Also claim that regular perturbation is almost orthogonal to the manifold, and  by projecting it back to the manifold almost returns it to the original sample.
   - Adversarial training with on-manifold adversarial examples (i.e. searching in latent space of VAE-GAN) improves "generalization": lower test error, lower on-manifold adv. success rate. Does not lower off-manifold adv. success rate.
   - Regular adversarial training (Madry et al.) does not improve test error and is not robust to on-manifold adversarial examples.
-- :+1: &nbsp; Ford et al., **Adversarial Examples Are a Natural Consequence of Test Error in Noise**, 2018.
-  - Try to show that adversarial examples are not a surprising phenomenon and can be expected from any well-behaved classifiers. The $\epsilon$-boundary measure, probability that $x$ is $\epsilon$ away from the error set, is large even if  the error set itself is small.
-  - They also show, on CIFAR-10 and ImageNet, that training with different types of noises, especially Gaussian with large std, can moderately improve model's robustness against adversarial examples (but less than adversarial training). However, an adversarially trained model is also more susceptible to Gaussian noise but still better than the undefended model.
-  - Defenses that exhibit gradient masking (does not create a larger distance to boundary) do not improve robustness to other types of noise. Encourage improvement in robustness to general noise, and say that perfect accuracy under noises is nontrivial.
 - :+1: &nbsp; Ding et al., **On the Sensitivity of Adversarial Robustness to Input Data Distribution**, ICLR 2019.
   - Adversarial robustness depends heavily on some characteristic of dataset. Data can be transformed in such a way that its clean accuracy is unchanged, but robust accuracy can vary significantly. Hypothesis: loosely speaking, feature squeezing makes dataset "easier" to learn so adversarial training works better, hence the model becomes more robust.
   - Saturated CIFAR-10 (similar to bit depth squeezing) seems be very robust when combined with adversarial training. Edge detection on FMNIST or adjusting gamma on CIFAR-10 seems to also affect robustness after adversarial training.
@@ -294,34 +338,22 @@ A compilation of papers in adversarial examples that I have read or plan to read
   - Lemma 9: If $\epsilon < d(X_+,X_-)/4$, then set of $\epsilon$__-respectful__ classifiers is guaranteed to be non-empty.
   - Theorem 13 ((non)-linear classifier, random augment): For $r < \epsilon$, worst-case margin is $\geq \frac{1}{2\sqrt{2}} \sqrt{\frac{log(N/d)}{d}}r$ where $N$ is number of augmentation per samples.
   - Theorem 7: For linear classifier, $r$ can be chosen to be O(max-margin) so worst-case margin is also linear to  max-margin.
-- :+1: &nbsp; Franceschi et al., **Robustness of classifiers to uniform $\ell_p$ and Gaussian noise**, 2018.
-- :+1: &nbsp; Fawsi et al., **Robustness of classifiers: from adversarial to random noise**, NeurIPS 2016.
-- :+1: &nbsp; Fawsi et al., **The robustness of deep networks: A geometrical perspective**, 2017.
-- Tramer and Boneh, **Adversarial Training and Robustness for Multiple Perturbations**, NeurIPS 2019. 
+- Tramer and Boneh, **Adversarial Training and Robustness for Multiple Perturbations**, NeurIPS 2019.
   - Analyze the same simple dataset as Tsipras et al. 2019 (1 robust and d non-robust features) and show that the robustness against $\ell_\infty$ and $\ell_1$ perturbations is "mutually exclusive" (adversarial accuracy in one comes at a cost of the other) with a specific perturbation size. A more complicated proof shows a similar (but tighter) relationship between $\ell_\infty$ and rotation-translation (RT) perturbation.
-  - They analyze that "affine transformation" of multiple perturbation types (actually more like convex combination of points in each perturbation set) and show that for linear classifiers, affine transformation of $\ell_p$-based attacks is equivalent to their union. But this is not the case for "affine transformation" between $\ell_\infty$ and RT (note that affine transformation with RT does not follow the strict definition) as well as in the nonlinear case. 
+  - They analyze that "affine transformation" of multiple perturbation types (actually more like convex combination of points in each perturbation set) and show that for linear classifiers, affine transformation of $\ell_p$-based attacks is equivalent to their union. But this is not the case for "affine transformation" between $\ell_\infty$ and RT (note that affine transformation with RT does not follow the strict definition) as well as in the nonlinear case.
   - On MNIST and CIFAR-10, they show adversarial training on two types of perturbations by training the model on (1) both samples and take average of the loss (avg) or (2) only the stronger one (max). The two methods have comparable robustness. Both perform better than single-perturbation models on the perturbation they are not trained on but worse on the one they are trained on.
   - They also confirm an observation that models trained on $\ell_\infty$ "learn a threshold function in the first layer" on MNIST which results in gradient masking for $\ell_1$ and $\ell_2$ attacks. But, perhaps interestingly, models trained on $\ell_1$ or $\ell_2$ perturbation directly do not learn this "trick".
-  - They also propose a more efficient $$\ell_1$$-attack than PGD and less expensive than EAD attack.
+  - They also propose a more efficient $\ell_1$-attack than PGD and less expensive than EAD attack.
 
+## Non-Neural Network
+- Yang et al., **Adversarial Examples for Non-Parametric Methods: Attacks, Defenses and Large Sample Limits**, 2019. [[link]](https://arxiv.org/abs/1906.03310)
+  - Propose an exact attack (**Region-Based Attack**) on non-parametric models that rely on separating the input space into $s$ polytopes with at most $m$ linear constraints each, e.g. for 1-NN, $s = n$ and $m = n - 1$ where $n$ is the number of training samples.
+  - The attack minimizes the perturbation norm (convex) with $m$ linear constraints for each polytope. Repeat the optimization for the number of polytopes that are classified as a different class from the original sample. Complexity is $s \cdot poly(m, d)$ where $d$ is dimension of the problem, depending on the choice of the norm.
+  - To speed up the attack, they propose an approximate version of the attack which searches only on nearby polytopes instead of all of them.
+  - On the defense side, they propose a notion of $r$-Optimal classifier $f_{ropt}$ based on choosing $C$ subsets $\{S_1,...,S_C\}$ of training samples for each class that are at least $2r$ apart from each other and maximizes the robustness.  $f_{ropt}(x) = j$ where $d(x, S_j) \leq r$.
+  - With the knowledge of $\mu$, the optimal subsets (and so $f_{ropt}$) can be computed for a given $r$ and $d(\cdot, \cdot)$. However, we don't have access to $\mu$ in practice so they propose a defense called **Adversarial Pruning** which is a maximal subset of the original training set that any pair of samples from two different class is at least $2r$ apart. Adversarial Pruning for $C > 2$ is also NP-Hard. They claim, without proof, that non-parametric models "trained" on this pruned subset will closely approximate $f_{ropt}$.
+  - The defense seems effective on most datasets and most models. There are few simplifications on the datasets: (1) attacks are computed only on 100 samples from each dataset, (2) MNIST and F-MNIST are reduced to binary, (3) for nearest neighbor, training samples from MNIST and F-MNIST are only 1000 from each class (2000 total). This suggests the optimization being very computationally expensive. The effectiveness of the defense is reported as the relative robustness before and after the defense so it is difficult to compare across models.
 
-### Hardness of Defense
-- A. Fawzi, O. Fawzi, and P. Frossard, **Analysis of classifiers’ robustness to adversarial perturbations.**
-- Schmidt et al., **Adversarially Robust Generalization Requires More Data**, NeurIPS 2018.
-  - Study two simple data distributions (Gaussian and Bernoulli) and size of training set required for __any__ learning algorithm to have robust generalization. The gap between robust and normal generalization is a factor of $O(\sqrt{d})$ for Gaussian. For Bernoulli, with thresholding, the gap is $O(1)$.
-  - Experiment on MNIST shows that more training data is more robust, normal < threshold < adversarial training < adversarial training + threshold.
-- Tsipras et al., **Robustness May Be at Odds with Accuracy**, ICLR 2019.
-- :+1: &nbsp; Gilmer et al., **Motivating the Rules of the Game for Adversarial Example Research**, 2018. [[link]](https://arxiv.org/abs/1807.06732)
-  - Analyze and propose different threat models for adversarial examples in the context of real-world security-critical applications
-- :+1: &nbsp; Mahloujifar et al., **The Curse of Concentration in Robust Learning: Evasion and Poisoning Attacks from Concentration of Measure**, 2018.
-  - Prove existence of adversarial examples with an assumption on Concentration of the measure. Shows that normal Levy family satisfies this assumption.
-- :+1: &nbsp; Shafahi et al., **Are adversarial examples inevitable?**, ICLR 2019.
-  - Provide bound on probability of finding an adversarial examples, independent on classifiers but dependent on data distribution (shape of input domain and __density__). The proofs are shown for a unit ball and a unit cube with upper-bounded density. Lower density and higher dimension mean higher probability.
-  - However, high dimension alone does not account for more susceptibility because the density also implicitly depends on dimension in an exponential manner which can end up nullifying an increase in dimension (that does not affect intrinsic density i.e. image resizing). Note that $\epsilon$ does increase for higher-dimension MNIST, but it scales with $\sqrt{n}$ for $\ell_2$. See Figure 4b. The authors argue that the probability rather depends on the density (or data __complexity__), comparing between two datasets of equal dimension.
-  - Probability of finding adversarial examples within $\epsilon$-ball is __at least__ $1 - U_c e^{-\pi \epsilon^2/2\pi}$ where $U_c$ is an upperbound of density function of class $c$.
-- Mahloujifar et al., **Empirically Measuring Concentration: Fundamental Limits on Intrinsic Robustness**, 2019.
-- :+1: &nbsp; Dohmatob, **Limitations of adversarial robustness: strong No Free Lunch Theorem**, ICML 2019.
-  - Provide a generalization of other previous works (Gilmer et al. 2018, Tsipras et al. 2018, etc.). Covers both geodesic distance and $\ell_p$-norm on flat space. Main tools are borrowed from measure theory (Talagrand W2 transportation-cost inequality, blow-up property).
 
 ---
 
